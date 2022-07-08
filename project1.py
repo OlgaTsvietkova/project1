@@ -32,12 +32,11 @@ from random import randrange
 def pc_move(board): # Returns a game board with the computer's move.
     while True:
         pc_position = randrange(1, 21)
-        if board[pc_position-1] == "-":
-            board = move(board, 'O', pc_position)
-        else: 
+        if "-" not in board[pc_position-1]:
             pc_position = randrange(1, 21)
-            board = move(board, 'O', pc_position)
-        return board
+        elif board[pc_position-1] == "-": 
+            board = move(board,'O', pc_position)
+            return board
 
 
 def tictactoe():
@@ -78,6 +77,6 @@ def tictactoe():
             print('Here\'s the final board:' + board)
             break
         else:
-            print("PC move: " + board)
+            print("Comp move: " + board)
     
 tictactoe()
