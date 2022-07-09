@@ -32,9 +32,7 @@ from random import randrange
 def pc_move(board): # Returns a game board with the computer's move.
     while True:
         pc_position = randrange(1, 21)
-        if "-" not in board[pc_position-1]:
-            pc_position = randrange(1, 21)
-        elif board[pc_position-1] == "-": 
+        if board[pc_position-1] == "-": 
             board = move(board,'O', pc_position)
             return board
 
